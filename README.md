@@ -13,4 +13,5 @@ This repo is used as a template for creating C++ projects.
 # Details
 
 You can find the details about how this template is created (and
-therefore how to customize it to your needs) in this [blog post]().
+therefore how to customize it to your needs) in this [blog
+post](https://www.breakds.org/post/nix-based-c++-workflow/).
