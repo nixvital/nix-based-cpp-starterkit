@@ -42,6 +42,9 @@
                    cmake
                    cmakeCurses
 
+                   # Development time dependencies
+                   gtest
+
                    # Build time and Run time dependencies
                    spdlog
                    abseil-cpp

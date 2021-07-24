@@ -31,6 +31,17 @@ include(CMakePackageConfigHelpers)      # Helper to create relocatable packages
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake") # Make our cmake scripts available
 
+###############
+##  Options  ##
+###############
+
+option(ENABLE_INSTALL
+    "Should ${PROJECT_NAME} be added to the install list? Useful if included using add_subdirectory." ON)
+option(ENABLE_TESTING "Should unit tests be compiled." ON)
+
+set(${PROJECT_NAME}_INSTALL_CMAKEDIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+    CACHE STRING "Path to install ${PROJECT_NAME} Config*.cmake files to.")
+
 ####################
 ##  Dependencies  ##
 ####################
@@ -38,15 +49,11 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake") # Make our cmak
 find_package(spdlog REQUIRED)
 find_package(absl REQUIRED)
 
-###############
-##  Options  ##
-###############
-
-option(ENABLE_INSTALL
-    "Should ${PROJECT_NAME} be added to the install list? Useful if included using add_subdirectory." ON)
-
-set(${PROJECT_NAME}_INSTALL_CMAKEDIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
-    CACHE STRING "Path to install ${PROJECT_NAME} Config*.cmake files to.")
+if(ENABLE_TESTING)
+    find_package(GTest REQUIRED)
+    include(GoogleTest)
+    enable_testing()
+endif()
 
 ###############
 ##  Targets  ##
@@ -77,7 +84,7 @@ if(ENABLE_INSTALL)
         NO_CHECK_REQUIRED_COMPONENTS_MACRO)
 
     install(
-        TARGETS what_time
+        TARGETS what_time simple
         EXPORT ${PROJECT_NAME}_Targets
         INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
