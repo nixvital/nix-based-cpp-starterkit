@@ -41,6 +41,10 @@
                    llvmPackages_11.clang
                    cmake
                    cmakeCurses
+
+                   # Build time and Run time dependencies
+                   spdlog
+                   abseil-cpp
                  ];
 
                  # Setting up the environment variables you need during
