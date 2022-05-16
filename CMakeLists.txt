@@ -27,9 +27,12 @@ include(GNUInstallDirs)                 # This will define the default values fo
 include(InstallRequiredSystemLibraries) # Tell CMake that the `install` target needs to install required system libraries (eg: Windows SDK)
 include(CMakePackageConfigHelpers)      # Helper to create relocatable packages
 
+
 # Custom modules and scripts
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake") # Make our cmake scripts available
+
+include(BuildHelpers)  # Helpers for writing cmake files
 
 ###############
 ##  Options  ##

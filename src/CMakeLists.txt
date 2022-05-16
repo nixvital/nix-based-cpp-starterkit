@@ -10,8 +10,8 @@ target_sources(simple
     PRIVATE simple.cc)
 
 if(ENABLE_TESTING)
-    add_executable(simple_test)
-    target_sources(simple_test PRIVATE simple_test.cc)
-    target_link_libraries(simple_test PRIVATE simple gtest gmock gtest_main)
-    gtest_discover_tests(simple_test)
+    MAKE_CC_TEST(
+        NAME simple_test
+        SRCS simple_test.cc
+        DEPS simple)
 endif()
