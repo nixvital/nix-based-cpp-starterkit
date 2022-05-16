@@ -9,7 +9,7 @@
     # E.g.
     #
     # nixpkgs.url = "github:NixOS/nixpkgs/unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/21.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/21.11";
 
     utils.url = "github:numtide/flake-utils";
     utils.inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +25,7 @@
                    # Add overlays here if you need to override the nixpkgs
                    # official packages.
                    overlays = [];
-                     
+                   
                    # Uncomment this if you need unfree software (e.g. cuda) for
                    # your project.
                    #
