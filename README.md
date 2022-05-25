@@ -1,6 +1,6 @@
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-# A Nix Basde C++ Project Template
+# A Nix Based C++ Project Template
 
 This repo is used as a template for creating C++ projects.
 
